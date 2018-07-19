@@ -1,2 +1,2 @@
-web: daphne pruebachat.asgi:application --port $port --bind 0.0.0.0
+web: daphne pruebachat.asgi:application --port $port
 worker: python manage.py runworker -v2
