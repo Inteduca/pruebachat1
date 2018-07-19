@@ -8,7 +8,9 @@ gunicorn = "==19.8.1"
 Django = "==2.0.6"
 "psycopg2" = "*"
 channels = "*"
-asgi-redis = "*"
+asgiref = "*"
+channels-redis = "*"
+dj-database-url = "*"
 
 [dev-packages]
 

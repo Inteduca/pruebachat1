@@ -11,17 +11,18 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import psycopg2
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 CHANNEL_LAYERS = {
     "default": {
-        "BACKEND": "asgi_redis.RedisChannelLayer",
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
             "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
         },
-        'ROUTING': 'pruebachat.routing.channel_routing',
     },
 }
 # Quick-start development settings - unsuitable for production
@@ -84,13 +85,10 @@ WSGI_APPLICATION = 'pruebachat.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+DATABASE_URL= 'postgres://ifjjstamvlbkka:18e0814a9a4c23c2cbce61dc3b86f2f0c2bc747ea428acc70f577c8a6637c825@ec2-174-129-192-200.compute-1.amazonaws.com:5432/db7ou5gfs37h41'
+conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
+DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
