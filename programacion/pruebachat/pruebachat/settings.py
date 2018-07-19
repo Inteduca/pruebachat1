@@ -34,7 +34,7 @@ SECRET_KEY = '5mzqnqvd(28t9rgu+nwrwco*%7f775gqnglvc$8&acz4+xi88o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'pruebachat1.herokuapp.com']
 
 ASGI_APPLICATION = "pruebachat.routing.application"
 
