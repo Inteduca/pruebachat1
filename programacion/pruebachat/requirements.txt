@@ -1,2 +1,4 @@
 gunicorn==19.8.1
 django==2.0.6
+Twisted==18.7.0
+wheel==0.31.0
