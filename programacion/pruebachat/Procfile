@@ -1,2 +1,2 @@
-web: daphne -p 8001 pruebachat.asgi:application
+web: daphne -p $PORT pruebachat.asgi:application
 worker: python manage.py runworker -v2
