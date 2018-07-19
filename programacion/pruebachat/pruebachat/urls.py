@@ -22,3 +22,4 @@ urlpatterns = [
     ]
 # chat/urls.py
 
+#handler404 = 'pruebachat.views.mycustom404'
