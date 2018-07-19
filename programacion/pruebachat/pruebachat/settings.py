@@ -21,7 +21,7 @@ CHANNEL_LAYERS = {
         "CONFIG": {
             "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
         },
-        
+        'ROUTING': 'pruebachat.routing.channel_routing',
     },
 }
 # Quick-start development settings - unsuitable for production
@@ -40,13 +40,13 @@ ASGI_APPLICATION = "pruebachat.routing.application"
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'channels',
     'chat'
 ]
 
